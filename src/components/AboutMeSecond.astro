@@ -1,0 +1,94 @@
+---
+import CzAboutNYC from '../img/about/CezarArvelo_About_NYC.webp';
+import CzAboutLA from '../img/about/CezarArvelo_About_LA.webp';
+import CzAboutATL from '../img/about/CezarArvelo_About_ATL.webp';
+
+const aboutSecondSectionData = [
+  { imgURL: CzAboutNYC },
+  { imgURL: CzAboutLA },
+  { imgURL: CzAboutATL },
+];
+---
+
+<section>
+  <div class='container about-second-section'>
+    {
+      aboutSecondSectionData.map(img => (
+        <img src={img.imgURL} alt='' class='slide-in' />
+      ))
+    }
+
+    <div class='contact-btn-container slide-in'>
+      <a href='./contact.html' class='contact-btn'>contact</a>
+    </div>
+  </div>
+</section>
+
+<style>
+  .about-second-section {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+
+    padding-top: 4rem;
+  }
+
+  .about-second-section > img {
+    width: 90%;
+    max-width: 320px;
+  }
+
+  .contact-btn-container {
+    display: flex;
+    align-items: flex-end;
+  }
+
+  .contact-btn {
+    display: block;
+    padding: 1rem 2rem;
+    font-family: var(--suprtall);
+    font-size: 2.5rem;
+    text-decoration: none;
+    color: var(--white-clr);
+    background-color: var(--grey-clr);
+    border-radius: 2px;
+    margin-left: 2rem;
+
+    transition: background-color 0.15s ease-in-out;
+  }
+
+  .contact-btn:hover {
+    background-color: var(--dark-grey-clr);
+  }
+
+  /* 1024 */
+  @media (max-width: 1024px) {
+    .contact-btn {
+      margin-left: 2rem;
+    }
+  }
+
+  @media (max-width: 800px) {
+    .about-second-section {
+      max-width: 600px;
+      margin: 0 auto;
+
+      grid-template-columns: 1fr;
+      row-gap: 2rem;
+    }
+
+    .about-second-section > img {
+      margin: 0 auto;
+    }
+
+    .contact-btn-container {
+      max-width: 320px;
+      width: 100%;
+      margin: 0 auto;
+      justify-content: flex-end;
+    }
+
+    .contact-btn {
+      margin-left: 0;
+    }
+  }
+</style>
