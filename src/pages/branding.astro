@@ -1,0 +1,26 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/projectsPage/Header.astro';
+
+import bgImgDesktop from '../img/branding/NYC_ImageV2.png';
+import bgImgMob from '../img/branding/Branding_Mobile_container.webp';
+
+const brandingData = {
+  headerTitle: 'branding',
+  headerDesc:
+    "Over the last 10 years I've helped countless individuals and companies of all sizes match their brand aesthetic to their message and purpose.In today's day and age,you can't get by with a good product alone.",
+  bgImgDesktop: bgImgDesktop,
+  bgImgMob: bgImgMob,
+};
+---
+
+<Layout title="C'Z Arvelo | Branding">
+  <Header
+    headerTitle={brandingData.headerTitle}
+    headerDesc={brandingData.headerDesc}
+    headerDescMob1={brandingData.headerDesc.slice(0, 50)}
+    headerDescMob2={brandingData.headerDesc.slice(50, -1)}
+    bgImgDesktop={`url(${brandingData.bgImgDesktop})`}
+    bgImgMob={`url(${brandingData.bgImgMob})`}
+  />
+</Layout>

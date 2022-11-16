@@ -1,0 +1,26 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/projectsPage/Header.astro';
+
+import bgImgDesktop from '../img/illustration/ATL_Image1.png';
+import bgImgMob from '../img/illustration/Illustration_Mobile_container.webp';
+
+const illustrationData = {
+  headerTitle: 'illustration',
+  headerDesc:
+    "Over the last 10 years I've helped countless individuals and companies of all sizes match their brand aesthetic to their message and purpose.In today's day and age,you can't get by with a good product alone.",
+  bgImgDesktop: bgImgDesktop,
+  bgImgMob: bgImgMob,
+};
+---
+
+<Layout title="C'Z Arvelo | Illustration">
+  <Header
+    headerTitle={illustrationData.headerTitle}
+    headerDesc={illustrationData.headerDesc}
+    headerDescMob1={illustrationData.headerDesc.slice(0, 50)}
+    headerDescMob2={illustrationData.headerDesc.slice(50, -1)}
+    bgImgDesktop={`url(${illustrationData.bgImgDesktop})`}
+    bgImgMob={`url(${illustrationData.bgImgMob})`}
+  />
+</Layout>
