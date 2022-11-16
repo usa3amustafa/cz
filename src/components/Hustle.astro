@@ -1,0 +1,180 @@
+---
+import HustleImg from '../img/Home_Image.webp';
+---
+
+<section id='about'>
+  <div class='section section-one container'>
+    <div class='section-one-left-col'>
+      <h2 class='section-one-title section-title slide-in'>
+        "Hustle Everyday"
+      </h2>
+
+      <p class='desc-text slide-in'>
+        Over the last 10 years I've helped countless individuals and companies
+        of all sizes match their brand aesthetic to their message and purpose.In
+        today's day and age,you can't get by with a good product alone,but
+        rather,a captivating story needs to be told through your brand.This
+        visual associated with that story should embody the message you want to
+        convey.This presentation was curated to showcase the depth and breadth
+        of my logo and branding design work over the last decade.It has been an
+        honor helping businesses make their mark through great design and I can
+        only hope that the next 10 years of my contributions will positively
+        impact the world.
+      </p>
+
+      <p class='desc-text-mobile slide-in'>
+        Over the last 10 years I've helped countless individuals and companies
+        of all sizes match their brand aesthetic to their message and purpose.In
+        today's day and age,you can
+
+        <span class='read-more'>... Read More</span>
+        <span class='read-more-text slide-in'>
+          't get by with a good product alone,but rather,a captivating story
+          needs to be told through your brand.This visual associated with that
+          story should embody the message you want to convey.This presentation
+          was curated to showcase the depth and breadth of my logo and branding
+          design work over the last decade.It has been an honor helping
+          businesses make their mark through great design and I can only hope
+          that the next 10 years of my contributions will positively impact the
+          world.
+        </span>
+      </p>
+    </div>
+    <div class='section-one-right-col slide-in'>
+      <img src={HustleImg} alt='' />
+    </div>
+  </div>
+</section>
+
+<style>
+  .section-one {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    align-content: center;
+  }
+
+  .section-one-left-col,
+  .section-one-right-col {
+    grid-row: 1/-1;
+  }
+
+  .section-one-left-col {
+    grid-column: 1/10;
+  }
+
+  .section-one-right-col {
+    grid-column: 8/-1;
+    z-index: -1;
+  }
+
+  .section-one-title {
+    font-size: 4rem;
+    font-family: var(--suprtall);
+    font-weight: bold;
+    margin-bottom: 1rem;
+  }
+
+  .desc-text {
+    font-family: var(--usiversltsd);
+    font-size: 1.25rem;
+    line-height: 1.6;
+  }
+
+  .desc-text-mobile {
+    display: none;
+  }
+
+  .read-more {
+    color: var(--white-clr);
+    font-weight: 500;
+    cursor: pointer;
+    display: none;
+  }
+
+  /* 1280px */
+  @media (max-width: 1280px) {
+    .section-one-left-col {
+      grid-column: 1/10;
+    }
+    .section-one-right-col {
+      grid-column: 7/-1;
+    }
+  }
+
+  /* 1130px */
+  @media (max-width: 1130px) {
+    .section-one-left-col {
+      grid-column: 1/10;
+    }
+    .section-one-right-col {
+      grid-column: 6/-1;
+    }
+  }
+
+  /* 1024px */
+  @media (max-width: 1024px) {
+    .section-one {
+      grid-template-rows: 1fr auto;
+    }
+
+    .section-one-left-col {
+      grid-column: 1/-1;
+      grid-row: 1/2;
+    }
+    .section-one-right-col {
+      grid-column: 1/-1;
+      grid-row: 2/-1;
+    }
+
+    .section-one-left-col,
+    .section-one-right-col {
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    .desc-text {
+      display: none;
+    }
+
+    .desc-text-mobile {
+      display: block;
+      font-family: var(--usiversltsd);
+      font-size: 1.25rem;
+      line-height: 1.6;
+      margin-bottom: 1rem;
+    }
+
+    .read-more-text {
+      line-height: 1.6;
+      display: none;
+      transition: transform 0.7s ease-out, opacity 0.7s ease-out;
+    }
+
+    .read-more {
+      display: inline-block;
+    }
+
+    .display-none {
+      display: none;
+    }
+
+    .read-more-text {
+      display: none;
+      overflow: hidden;
+    }
+
+    .show-read-more {
+      display: inline;
+      height: auto;
+    }
+  }
+</style>
+
+<script>
+  const readMoreBtn = document.querySelector('.read-more');
+  const readMoreText = document.querySelector('.read-more-text');
+  readMoreBtn.addEventListener('click', function () {
+    readMoreText.classList.add('show-read-more');
+    readMoreBtn.classList.add('display-none');
+  });
+</script>

@@ -2,6 +2,7 @@
 import Nav from '../components/Nav.astro';
 import '../styles/fonts.css';
 import '../styles/utilities.css';
+import '../scripts/slider.js';
 ---
 
 <!DOCTYPE html>
@@ -13,18 +14,38 @@ import '../styles/utilities.css';
 
     <title>Cezar Arvelo</title>
 
-    <link rel='icon' type='image/x-icon' href='/img/favicon.ico' />
-
-    <!-- fontawsome -->
-    <link
-      rel='stylesheet'
-      href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css'
-      integrity='sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=='
-      crossorigin='anonymous'
-    />
+    <link rel='icon' type='image/x-icon' href='./img/favicon.ico' />
   </head>
   <body>
     <Nav />
     <slot />
+
+    <script>
+      const sliders = document.querySelectorAll('.slide-in');
+
+      const appearOptions = {
+        threshold: 0,
+        rootMargin: '0px 0px -150px 0px',
+      };
+
+      const appearOnScroll = new IntersectionObserver(function (
+        entries,
+        appearOnScroll
+      ) {
+        entries.forEach(entry => {
+          if (!entry.isIntersecting) {
+            return;
+          } else {
+            entry.target.classList.add('appear');
+            appearOnScroll.unobserve(entry.target);
+          }
+        });
+      },
+      appearOptions);
+
+      sliders.forEach(slider => {
+        appearOnScroll.observe(slider);
+      });
+    </script>
   </body>
 </html>
