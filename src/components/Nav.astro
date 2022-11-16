@@ -1,0 +1,194 @@
+<nav>
+  <div class='container nav'>
+    <a href='./index.html'>
+      <img src='/img/nav/logo-img.webp' alt='' class='logo' width='30' />
+    </a>
+
+    <ul class='nav-links'>
+      <li><a href='#work' class='nav-link'>work</a></li>
+      <li><a href='./pages/about.html' class='nav-link'>about</a></li>
+      <li><a href='./pages/contact.html' class='nav-link'>contact</a></li>
+      <li><a href='#' class='nav-link'>shop</a></li>
+
+      <div class='social-links'>
+        <a href='#' class='social-link'
+          ><img src='./img/nav/instagram-icon.webp' alt='' width='15' />
+        </a>
+        <a href='#' class='social-link'
+          ><img src='./img/nav/linkedin-icon.webp' alt='' width='15' />
+        </a>
+      </div>
+      <i class='fa-solid fa-xmark close-icon'></i>
+    </ul>
+
+    <i class='fa-solid fa-bars hamburger'></i>
+  </div>
+</nav>
+
+<script>
+  const hamburger = document.querySelector('.hamburger');
+  const closeIcon = document.querySelector('.close-icon');
+  const navbar = document.querySelector('.nav-links');
+  const navLinks = document.querySelectorAll('.nav-link');
+  const nav = document.querySelector('nav');
+
+  window.addEventListener('load', function () {
+    nav.classList.add('slidedown');
+  });
+
+  hamburger.addEventListener('click', () => {
+    navbar.classList.add('show-nav-links');
+  });
+  closeIcon.addEventListener('click', () => {
+    navbar.classList.remove('show-nav-links');
+  });
+
+  navLinks.forEach(link => {
+    link.addEventListener('click', () => {
+      navbar.classList.remove('show-nav-links');
+    });
+  });
+</script>
+
+<style>
+  nav {
+    background: #000;
+
+    position: fixed;
+    width: 100%;
+    left: 0;
+    top: 0;
+    opacity: 0;
+
+    transition: opacity 1s ease-in-out;
+    transition-delay: 0.75s;
+  }
+
+  .slidedown {
+    opacity: 1;
+    z-index: 10;
+  }
+
+  .nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    padding: 0.5rem 0;
+  }
+
+  .logo {
+    transition: transform 0.1s ease-in-out;
+  }
+
+  .logo:hover {
+    transform: scale(0.95);
+  }
+
+  .nav-links {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .nav-link {
+    display: inline-block;
+    font-size: 1.25rem;
+    letter-spacing: 1px;
+    font-weight: 600;
+    font-family: var(--usiversltsdLight);
+    color: var(--white-clr);
+    text-transform: uppercase;
+    text-decoration: none;
+
+    transition: transform 0.15s ease-in-out;
+  }
+
+  .nav-link:hover {
+    transform: translateY(-2px);
+  }
+
+  .nav-links > li {
+    border-left: 3px solid var(--white-clr);
+    padding-left: 1rem;
+  }
+  .nav-links > li:first-child {
+    border-left: none;
+    padding-left: 0;
+  }
+
+  .social-links {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-top: 0.25rem;
+  }
+
+  .social-link {
+    display: inline-block;
+
+    transition: transform 0.15s ease-in-out;
+  }
+
+  .social-link:hover {
+    transform: translateY(-2px);
+  }
+
+  .hamburger,
+  .close-icon {
+    display: none;
+    font-size: 1.5rem;
+    color: #fff;
+
+    cursor: pointer;
+  }
+
+  /* 800px */
+  @media (max-width: 800px) {
+    .hamburger,
+    .close-icon {
+      display: block;
+    }
+
+    .nav-links {
+      opacity: 0;
+      transform: translateX(1000px);
+      position: fixed;
+      right: 0;
+      top: 0;
+
+      height: 100vh;
+      width: 95%;
+      max-width: 500px;
+      background: var(--black-clr);
+      flex-direction: column;
+      justify-content: center;
+
+      transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
+    }
+
+    .show-nav-links {
+      transform: translateX(0px);
+      opacity: 1;
+    }
+
+    .nav-link {
+      font-size: 2.5rem;
+    }
+
+    .social-link > img {
+      width: 20px;
+    }
+
+    .nav-links > li {
+      border-left: none;
+      padding-left: 0;
+    }
+
+    .close-icon {
+      position: absolute;
+      top: 5%;
+      right: 5%;
+    }
+  }
+</style>
