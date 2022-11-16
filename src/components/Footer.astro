@@ -1,0 +1,83 @@
+---
+import FooterLogo from '../img/Footer_Logo.webp';
+import InstaIcon from '../img/nav/instagram-icon.webp';
+import LinkedInIcon from '../img/nav/linkedin-icon.webp';
+---
+
+<footer>
+  <div class='footer container'>
+    <img src={FooterLogo} class='footer-logo' alt='' />
+    <p class='footer-text'>
+      C'Z Arvelo LLC <span class='vertical-bar'></span> 2022
+    </p>
+    <div class='social-links-footer'>
+      <a class='social-link-footer' href='#'><img src={InstaIcon} alt='' /></a>
+      <a class='social-link-footer' href='#'
+        ><img src={LinkedInIcon} alt='' />
+      </a>
+    </div>
+  </div>
+</footer>
+
+<style>
+  footer {
+    margin-top: 4rem;
+  }
+
+  .footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    padding: 2rem;
+  }
+
+  .footer-logo {
+    max-width: 80px;
+  }
+
+  .footer-text {
+    font-family: var(--usiversltsd);
+    font-size: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-weight: lighter;
+
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .vertical-bar {
+    display: inline-block;
+
+    height: 18px;
+    width: 1px;
+    background-color: var(--white-clr);
+  }
+
+  .social-links-footer {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .social-link-footer {
+    transition: transform 0.15s ease-in-out;
+  }
+
+  .social-link-footer:hover {
+    transform: translateY(-2px);
+  }
+
+  .social-link-footer > img {
+    max-width: 20px;
+  }
+
+  @media (max-width: 640px) {
+    .footer {
+      flex-direction: column;
+      gap: 2rem;
+    }
+  }
+</style>

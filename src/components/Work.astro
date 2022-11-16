@@ -1,0 +1,176 @@
+---
+import BoxContaniner from '../img/Box_Containers.webp';
+
+const workSectionData = [
+  {
+    href: './pages/branding-packaging/branding-packaging.html',
+    title: 'branding / packaging',
+    desc: 'clientele & agency work',
+    titleClass: 'branding',
+  },
+  {
+    href: './pages/illustration/illustration.html',
+    title: 'illustration',
+    desc: 'ip development',
+    titleClass: 'illustration',
+  },
+  {
+    href: './pages/apparel/apparel.html',
+    title: 'apparel',
+    desc: 'clientele & agency work',
+    titleClass: 'apparel',
+  },
+  {
+    href: './pages/branding-packaging/branding-packaging.html',
+    title: 'shop',
+    desc: 'personal designs',
+    titleClass: 'shop',
+  },
+];
+---
+
+<section id='work'>
+  <div class='container projects-section'>
+    {
+      workSectionData.map(work => (
+        <div class='project project-one slide-in'>
+          <a href={work.href} class='project-link'>
+            <img src={BoxContaniner} alt='' />
+            <div class='project-text'>
+              <h2 class={`project-title ${work.titleClass}`}>{work.title}</h2>
+              <p class='project-desc'>{work.desc}</p>
+            </div>
+          </a>
+        </div>
+      ))
+    }
+  </div>
+</section>
+
+<style>
+  .projects-section {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    align-content: center;
+    column-gap: 2rem;
+    row-gap: 2rem;
+  }
+
+  .project {
+    position: relative;
+  }
+
+  .project-link {
+    display: inline-block;
+    color: var(--white-clr);
+
+    transition: transform 0.15s ease-in-out, filter 0.15s ease-in-out;
+  }
+
+  .project-link:hover {
+    transform: translateY(-10px);
+    filter: brightness(120%);
+  }
+
+  .project-text {
+    position: absolute;
+    z-index: 5;
+    top: 15%;
+    left: 6%;
+  }
+
+  .project-title {
+    font-family: var(--suprtall);
+    font-size: 6rem;
+    text-transform: uppercase;
+
+    position: relative;
+  }
+
+  .project-desc {
+    font-family: var(--usiversltsdLight);
+    letter-spacing: 3px;
+    font-size: 2rem;
+    text-transform: uppercase;
+  }
+
+  .project-title::before {
+    font-family: var(--usiversltsdLight);
+    letter-spacing: 4px;
+    font-size: 1.25rem;
+
+    position: absolute;
+
+    top: -20px;
+    left: -18.5px;
+  }
+
+  .branding::before {
+    content: '01';
+  }
+
+  .illustration::before {
+    content: '02';
+  }
+
+  .apparel::before {
+    content: '03';
+  }
+
+  .shop::before {
+    content: '04';
+  }
+
+  @media (max-width: 1170px) {
+    .projects-section {
+      grid-template-columns: 1fr;
+    }
+
+    .project {
+      max-width: 600px;
+      margin: 0 auto;
+    }
+  }
+
+  @media (max-width: 640px) {
+    .tagline {
+      font-size: 2.5rem;
+    }
+
+    .project-title {
+      font-size: 4rem;
+    }
+
+    .project-title::before {
+      font-size: 1.25rem;
+      top: -18.5px;
+      left: -16.5px;
+    }
+  }
+
+  @media (max-width: 390px) {
+    .tagline {
+      font-size: 2rem;
+    }
+
+    .project-title {
+      font-size: 3rem;
+    }
+  }
+
+  @media (max-width: 350px) {
+    .project-title {
+      font-size: 3rem;
+    }
+
+    .project-title::before {
+      font-size: 1rem;
+      top: -15px;
+      left: -13.5px;
+    }
+
+    .project-desc {
+      font-size: 1rem;
+    }
+  }
+</style>

@@ -1,8 +1,14 @@
 ---
 import Nav from '../components/Nav.astro';
+import Footer from '../components/Footer.astro';
 import '../styles/fonts.css';
 import '../styles/utilities.css';
-import '../scripts/slider.js';
+
+export interface Props {
+  title: string;
+}
+
+const { title = 'Cezar Arvelo' } = Astro.props as Props;
 ---
 
 <!DOCTYPE html>
@@ -12,13 +18,14 @@ import '../scripts/slider.js';
     <meta http-equiv='X-UA-Compatible' content='IE=edge' />
     <meta name='viewport' content='width=device-width, initial-scale=1.0' />
 
-    <title>Cezar Arvelo</title>
+    <title>{title}</title>
 
     <link rel='icon' type='image/x-icon' href='./img/favicon.ico' />
   </head>
   <body>
     <Nav />
     <slot />
+    <Footer />
 
     <script>
       const sliders = document.querySelectorAll('.slide-in');
