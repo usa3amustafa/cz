@@ -1,6 +1,7 @@
 ---
 import Nav from '../components/Nav.astro';
 import Footer from '../components/Footer.astro';
+import Favicon from '../../public/img/favicon.ico';
 import '../styles/fonts.css';
 import '../styles/utilities.css';
 
@@ -20,7 +21,7 @@ const { title = 'Cezar Arvelo' } = Astro.props as Props;
 
     <title>{title}</title>
 
-    <link rel='icon' type='image/x-icon' href='img/favicon.ico' />
+    <link rel='icon' type='image/x-icon' href={Favicon} />
   </head>
   <body>
     <Nav />
