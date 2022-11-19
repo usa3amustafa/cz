@@ -1,0 +1,50 @@
+---
+export interface Props {
+  projectImgsDesktop: Array<object>;
+}
+
+const { projectImgsDesktop } = Astro.props as Props;
+---
+
+{
+  projectImgsDesktop.map(desktopImg => (
+    <div class='work-project'>
+      <a href='/beybladeHypersphere'>
+        <img src={desktopImg.preHover} alt='' class='work-pre-hover-img' />
+
+        <img src={desktopImg.hover} alt='' class='work-hover-img' />
+      </a>
+    </div>
+  ))
+}
+
+<style>
+  .work-project {
+    width: 90%;
+    margin: 0 auto;
+    position: relative;
+  }
+  .work-pre-hover-img {
+    opacity: 1;
+    transition: opacity 0.1s ease-in;
+  }
+
+  .work-hover-img {
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    opacity: 0;
+
+    transition: opacity 0.1s ease-in;
+  }
+
+  .work-project:hover .work-pre-hover-img {
+    opacity: 0;
+  }
+
+  .work-project:hover .work-hover-img {
+    opacity: 1;
+    cursor: pointer;
+  }
+</style>

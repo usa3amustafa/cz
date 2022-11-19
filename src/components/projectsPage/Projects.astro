@@ -1,0 +1,43 @@
+---
+import ProjectDesktop from './ProjectDesktop.astro';
+import ProjectMob from './ProjectMob.astro';
+
+export interface Props {
+  projectImgsDesktop: Object[];
+  projectsMobData: Object[];
+}
+
+const { projectImgsDesktop, projectsMobData } = Astro.props as Props;
+---
+
+<!-- projects  desktop -->
+<section id='projects'>
+  <div class='container work-projects'>
+    <ProjectDesktop projectImgsDesktop={projectImgsDesktop} />
+  </div>
+</section>
+
+<!-- projects mobile -->
+<section>
+  <div class='container projects-mobile'>
+    <ProjectMob projectMobData={projectsMobData} />
+  </div>
+</section>
+
+<style>
+  .projects-mobile {
+    display: none;
+  }
+  @media (max-width: 800px) {
+    #projects {
+      padding: 0;
+    }
+
+    .work-projects {
+      display: none;
+    }
+    .projects-mobile {
+      display: block;
+    }
+  }
+</style>
