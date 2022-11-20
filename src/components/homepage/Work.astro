@@ -6,25 +6,21 @@ const workSectionData = [
     href: '/branding',
     title: 'branding / packaging',
     desc: 'clientele & agency work',
-    titleClass: 'branding',
   },
   {
     href: '/illustration',
     title: 'illustration',
     desc: 'ip development',
-    titleClass: 'illustration',
   },
   {
     href: '/apparel',
     title: 'apparel',
     desc: 'clientele & agency work',
-    titleClass: 'apparel',
   },
   {
     href: '/#',
     title: 'shop',
     desc: 'personal designs',
-    titleClass: 'shop',
   },
 ];
 ---
@@ -32,12 +28,14 @@ const workSectionData = [
 <section id='work'>
   <div class='container projects-section'>
     {
-      workSectionData.map(work => (
+      workSectionData.map((work, i) => (
         <div class='project project-one slide-in'>
           <a href={work.href} class='project-link'>
             <img src={BoxContaniner} alt='' />
             <div class='project-text'>
-              <h2 class={`project-title ${work.titleClass}`}>{work.title}</h2>
+              <h2 class={`project-title project-title-${i + 1}`}>
+                {work.title}
+              </h2>
               <p class='project-desc'>{work.desc}</p>
             </div>
           </a>
@@ -105,19 +103,19 @@ const workSectionData = [
     left: -18.5px;
   }
 
-  .branding::before {
+  .project-title-1::before {
     content: '01';
   }
 
-  .illustration::before {
+  .project-title-2::before {
     content: '02';
   }
 
-  .apparel::before {
+  .project-title-3::before {
     content: '03';
   }
 
-  .shop::before {
+  .project-title-4::before {
     content: '04';
   }
 

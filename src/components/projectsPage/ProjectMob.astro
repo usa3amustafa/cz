@@ -7,12 +7,12 @@ const { projectMobData } = Astro.props as Props;
 ---
 
 {
-  projectMobData.map(prj => (
+  projectMobData.map((prj, i) => (
     <div class='project'>
       <a href={prj.href} class='project-link'>
         <img src={prj.img} alt='' />
         <div class='project-text'>
-          <h2 class={`project-title ${prj.titleClass}`}>{prj.title}</h2>
+          <h2 class={`project-title project-title-${i + 1}`}>{prj.title}</h2>
           <p class='project-desc'>{prj.desc}</p>
         </div>
       </a>
@@ -121,39 +121,39 @@ const { projectMobData } = Astro.props as Props;
       left: -16px;
     }
 
-    .one::before {
+    .project-title-1::before {
       content: '01';
     }
 
-    .two::before {
+    .project-title-2::before {
       content: '02';
     }
 
-    .three::before {
+    .project-title-3::before {
       content: '03';
     }
 
-    .four::before {
+    .project-title-4::before {
       content: '04';
     }
 
-    .five::before {
+    .project-title-5::before {
       content: '05';
     }
 
-    .six::before {
+    .project-title-6::before {
       content: '06';
     }
 
-    .seven::before {
+    .project-title-7::before {
       content: '07';
     }
 
-    .eight::before {
+    .project-title-8::before {
       content: '08';
     }
 
-    .nine::before {
+    .project-title-9::before {
       content: '09';
     }
 

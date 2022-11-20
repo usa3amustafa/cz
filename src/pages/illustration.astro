@@ -1,26 +1,135 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import Header from '../components/projectsPage/Header.astro';
+import Projects from '../components/projectsPage/Projects.astro';
 
-import bgImgDesktop from '../img/illustration/ATL_Image1.png';
-import bgImgMob from '../img/illustration/Illustration_Mobile_container.webp';
+import bgImgDesktop from '../img/branding/NYC_ImageV2.png';
+import bgImgMob from '../img/branding/Branding_Mobile_container.webp';
 
-const illustrationData = {
-  headerTitle: 'illustration',
+import TransformersPH from '../img/apparel/Transformers_Pre_HoverV2.webp';
+import TransformersH from '../img/apparel/Transformers_HoverV2.webp';
+import VerzuzPH from '../img/apparel/Verzuz_Pre_HoverV2.webp';
+import VerzuzH from '../img/apparel/Verzuz_HoverV2.webp';
+import CyphrPH from '../img/apparel/CYPHR_Pre_HoverV2.webp';
+import CyphrH from '../img/apparel/CYPHR_HoverV2.webp';
+import TrillerPH from '../img/apparel/Triller_Pre_HoverV2.webp';
+import TrillerH from '../img/Triller_HoverV2.webp';
+import TheoryPH from '../img/apparel/Theory_Pre_HoverV2.webp';
+import TheoryH from '../img/apparel/Theory_HoverV2.webp';
+import FightClubPH from '../img/apparel/FightClub_Pre_HoverV2.webp';
+import FightClubH from '../img/apparel/FightClub_HoverV2.webp';
+import SPSPH from '../img/apparel/SPS_Pre_HoverV2.webp';
+import SPSH from '../img/apparel/SPS_HoverV2.webp';
+import SubiceezPH from '../img/apparel/Subiceez_Pre_HoverV2.webp';
+import SubiceezH from '../img/apparel/Subiceez_HoverV2.webp';
+
+import TransformersMob from '../img/apparelMobile/Transformers_Mobile.webp';
+import VerzuzMob from '../img/apparelMobile/Verzuz_Mobile.webp';
+import CyphrMob from '../img/apparelMobile/CYPHR_Mobile.webp';
+import TrillerMob from '../img/apparelMobile/Triller_Mobile.webp';
+import TheoryMob from '../img/apparelMobile/Theory_Mobile.webp';
+import FightClubMob from '../img/apparelMobile/Fight_Club_Mobile.webp';
+import SPSMob from '../img/apparelMobile/Standard_Print_Mobile.webp';
+import SubiceezMob from '../img/apparelMobile/Subiceez_Mobile.webp';
+
+const apparelData = {
+  headerTitle: 'branding',
   headerDesc:
     "Over the last 10 years I've helped countless individuals and companies of all sizes match their brand aesthetic to their message and purpose.In today's day and age,you can't get by with a good product alone.",
   bgImgDesktop: bgImgDesktop,
   bgImgMob: bgImgMob,
+  projectsImgsDesktop: [
+    {
+      preHover: TransformersPH,
+      hover: TransformersH,
+    },
+    {
+      preHover: VerzuzPH,
+      hover: VerzuzH,
+    },
+    {
+      preHover: CyphrPH,
+      hover: CyphrH,
+    },
+    {
+      preHover: TrillerPH,
+      hover: TrillerH,
+    },
+    {
+      preHover: TheoryPH,
+      hover: TheoryH,
+    },
+    {
+      preHover: FightClubPH,
+      hover: FightClubH,
+    },
+    {
+      preHover: SPSPH,
+      hover: SPSH,
+    },
+    {
+      preHover: SubiceezPH,
+      hover: SubiceezH,
+    },
+  ],
+  projectsMobData: [
+    {
+      title: 'transformers',
+      img: TransformersMob,
+      href: '/transformers',
+      desc: 'apparel / consumer products',
+    },
+    {
+      title: 'verzuz',
+      img: VerzuzMob,
+      href: '/verzuz',
+      desc: 'apparel design / branding',
+    },
+    {
+      title: 'triller',
+      img: TrillerMob,
+      href: '/triller',
+      desc: 'apparel design / branding',
+    },
+    {
+      title: 'theory',
+      img: TheoryMob,
+      href: '/theory',
+      desc: 'brand identity',
+    },
+    {
+      title: 'fight club',
+      img: FightClubMob,
+      href: '/fightclub',
+      desc: 'apparel design',
+    },
+    {
+      title: 'standard print shop',
+      img: SPSMob,
+      href: '/sps',
+      desc: 'apparel / branding / ip development',
+    },
+    {
+      title: 'subiceez',
+      img: SubiceezMob,
+      href: '/subiceez',
+      desc: 'apparel / branding / ip development',
+    },
+  ],
 };
 ---
 
-<Layout title="C'Z Arvelo | Illustration">
+<Layout title="C'Z Arvelo | ILLUSTRATION">
   <Header
-    headerTitle={illustrationData.headerTitle}
-    headerDesc={illustrationData.headerDesc}
-    headerDescMob1={illustrationData.headerDesc.slice(0, 50)}
-    headerDescMob2={illustrationData.headerDesc.slice(50, -1)}
-    bgImgDesktop={`url(${illustrationData.bgImgDesktop})`}
-    bgImgMob={`url(${illustrationData.bgImgMob})`}
+    headerTitle={apparelData.headerTitle}
+    headerDesc={apparelData.headerDesc}
+    headerDescMob1={apparelData.headerDesc.slice(0, 50)}
+    headerDescMob2={apparelData.headerDesc.slice(50, -1)}
+    bgImgDesktop={`url(${apparelData.bgImgDesktop})`}
+    bgImgMob={`url(${apparelData.bgImgMob})`}
+  />
+  <Projects
+    projectImgsDesktop={apparelData.projectsImgsDesktop}
+    projectsMobData={apparelData.projectsMobData}
   />
 </Layout>
